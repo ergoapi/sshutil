@@ -13,8 +13,8 @@ func TestSSH_CmdAsync(t *testing.T) {
 	var (
 		ssh = SSH{
 			User:    "root",
-			Pass:    "centos",
-			PkFile:  "",
+			Pass:    "",
+			PkFile:  "/Users/ysicing/.ssh/id_rsa",
 			PkPass:  "",
 			Timeout: nil,
 			Debug:   true,
@@ -31,7 +31,16 @@ func TestSSH_CmdAsync(t *testing.T) {
 			"test ssh run w",
 			ssh,
 			args{
-				host: "127.0.0.1",
+				host: "172.16.16.55",
+				cmd:  "w",
+			},
+			false,
+		},
+		{
+			"test ssh run w",
+			ssh,
+			args{
+				host: "172.16.16.56",
 				cmd:  "w",
 			},
 			true,
